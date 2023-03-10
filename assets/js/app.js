@@ -43,8 +43,8 @@ $(document).ready(function () {
         slidesToShow: 4,
         slidesToScroll: 1,
         infinite: false,
-        dots: false,
-        arrows: true,
+        dots: true,
+        // arrows: true,
         autoplay: true,
         autoplaySpeed: 5000,
         draggable: true,
@@ -83,6 +83,43 @@ $(document).ready(function () {
 
         }
     });
+
+    $(window).on('scroll', function (e) {
+        if (!canScroll) {
+            e.preventDefault()
+        } 
+    })
+    
+    let canMouseout = true;
+    let canMouseenter = true;
+    let lastCardHover;
+    let canScroll = true;
+    $('.atuacao-card').on('mouseleave', function() {
+        canScroll = false;
+        if (canMouseout) {
+            $(this).removeClass('is-back');
+            $(this).parent('.scene').removeClass('is-back');
+        }
+        setTimeout(() => {
+            canMouseenter = true;
+            canScroll = true;
+        }, 500);
+    })
+    
+    $('.atuacao-card').on('mousemove', function() {
+        $('.atuacao-card').removeClass('is-back');
+        $('.scene').removeClass('is-back');
+        canScroll = false;
+        if (canMouseenter || lastCardHover != $(this).data('name')) {
+            $(this).addClass('is-back')
+            $(this).parent('.scene').addClass('is-back');
+        }
+        setTimeout(() => {
+            canMouseout = true;
+            canScroll = true;
+        }, 500);
+        lastCardHover = $(this).data('name');
+    })
 });
 
 function setHeaderScroll() {
