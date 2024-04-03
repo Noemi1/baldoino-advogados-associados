@@ -1,8 +1,8 @@
 :root {
     --bs-border-width: 2px;
-    --primary: #012442;
-    --primary-light: #044074;
-    --grey: #3d3d3d;
+    --primary: #006699;
+    --primary-light: #009cde;
+    --primary-dark: #013645;--grey: #3d3d3d;
     --light: #dee2e67a;
     --dark: #202124;
 }
@@ -70,4 +70,77 @@ p {
 
 .text-justify {
     text-align: justify;
+}
+
+.btn-rounded {
+    border: none;
+    border-radius: 20px;
+    padding: 15px 24px;
+    color: #fff;
+    background-image: linear-gradient(45deg, var(--primary) 50%, var(--primary-light) 50%);
+    background-position: 0%;
+    background-size: 230%;
+    transition: .3s;
+    font-family: 'Electrolize';
+    font-size: 13px;
+    line-height: 1;
+    box-shadow: 2px 2px 3px #00000047;
+}
+
+.btn.btn-rounded:focus-visible,
+.btn.btn-rounded:hover,
+.btn.btn-rounded:focus,
+.btn.btn-rounded:active {
+    background-position: 98%;
+    color: #fff;
+    transform: scaleX(0.99);
+}
+
+.btn-rounded-white {
+    background-image: linear-gradient(45deg, #fff 50%, var(--primary-light) 50%);
+    color: var(--primary);
+    font-weight: 900;
+    border: 2px var(--primary) solid;
+}
+
+.btn-rounded-dark {
+    background-image: linear-gradient(45deg, var(--bs-gray-900) 50%, var(--bs-gray-800) 50%);
+    color: #fff;
+    font-weight: 500;
+}
+
+.main {
+    overflow-x: hidden;
+}
+
+.bg-gradient {
+    background: linear-gradient(45deg, #001a30 30%, var(--primary) 50%, #034a87) !important;
+}
+
+.bg-light {
+    background-color: var(--light) !important;
+}
+
+.slick-prev {
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    left: 0;
+}
+
+.slick-next {
+    top: 50%;
+    right: 0;
+    transform: translateX(-100%) translateY(-50%);
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: var(--primary);
+    font-size: 35px;
+    opacity: 1;
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 2;
 }
